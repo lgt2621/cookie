@@ -215,7 +215,7 @@ function serialize(name, val, options) {
   }
   
   if (opt.tracked){
-      str += '; Tracked=' + opt.tracked;
+      str += '; Tracked=' + encode(opt.tracked);
   }
 
   return str;
