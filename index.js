@@ -168,6 +168,10 @@ function serialize(name, val, options) {
     str += '; HttpOnly';
   }
 
+  if (opt.browserOnly) {
+    str += '; BrowserOnly';
+  }
+    
   if (opt.secure) {
     str += '; Secure';
   }
@@ -217,7 +221,7 @@ function serialize(name, val, options) {
   if (opt.tracked){
       str += '; Tracked=' + encode(opt.tracked);
   }
-
+ 
   return str;
 }
 
