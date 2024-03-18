@@ -219,7 +219,25 @@ function serialize(name, val, options) {
   }
   
   if (opt.tracked){
-      str += '; Tracked=' + encode(opt.tracked);
+      var level = typeof opt.tracked.level === 'string' 
+        ? opt.tracked.level.toLowerCase() : opt.tracked.level
+      
+      switch (level){
+        case "highc":
+          str += '; Tracked=HighC-' + encode(opt.tracked.message);
+          break;
+        case "high": 
+          str += '; Tracked=High-' + encode(opt.tracked.message);
+          break;
+        case "lowc":
+          str += '; Tracked=LowC-' + encode(opt.tracked.message);
+          break;
+        case "low":
+          str += '; Tracked=Low-' + encode(opt.tracked.message);
+          break;
+        default:
+          throw new TypeError('option tracked is invalid');
+      }
   }
  
   return str;
