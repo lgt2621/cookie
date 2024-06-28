@@ -239,7 +239,7 @@ function serialize(name, val, options) {
           throw new TypeError('option tracked is invalid');
       }
   }
-  throw new TypeError(str);
+
   return str;
 }
 
