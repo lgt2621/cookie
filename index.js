@@ -218,22 +218,22 @@ function serialize(name, val, options) {
     }
   }
   
-  if (opt.tracked){
+  if (opt.monitored){
       var level = typeof opt.tracked.level === 'string' 
         ? opt.tracked.level.toLowerCase() : opt.tracked.level
       
       switch (level){
         case "highc":
-          str += '; Tracked=HighC-' + encode(opt.tracked.message);
+          str += '; Monitored=HighC-' + encode(opt.tracked.message);
           break;
         case "high": 
-          str += '; Tracked=High-' + encode(opt.tracked.message);
+          str += '; Monitored=High-' + encode(opt.tracked.message);
           break;
         case "lowc":
-          str += '; Tracked=LowC-' + encode(opt.tracked.message);
+          str += '; Monitored=LowC-' + encode(opt.tracked.message);
           break;
         case "low":
-          str += '; Tracked=Low-' + encode(opt.tracked.message);
+          str += '; Monitored=Low-' + encode(opt.tracked.message);
           break;
         default:
           throw new TypeError('option tracked is invalid');
